@@ -1077,3 +1077,149 @@ footer {
   font-size: 0.85rem;
   color: #666;
 }
+
+/* ==========================================================================
+   Mobile Responsiveness & Media Queries
+   ========================================================================== */
+
+/* Tablet & Mobile Screens (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 12px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    height: auto;
+    min-height: 80vh;
+    padding: 120px 20px 60px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content {
+    padding: 20px;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  /* Section Spacings & Paddings */
+  .about, .products, .services, .gallery, .reviews, .faq-section, .contact-section, .transport-section {
+    padding: 50px 20px;
+  }
+
+  /* About Section Images */
+  .about-images {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .about-images img {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  /* Floating Action Buttons spacing adjust */
+  .float-btn, .float-whatsapp {
+    width: 48px;
+    height: 48px;
+    right: 15px;
+  }
+
+  .float-btn img, .float-whatsapp img {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Adjust positions to fit smaller screens without overlapping */
+  .fb  { bottom: 185px; }
+  .ig  { bottom: 130px; }
+  .wa  { bottom: 75px; }
+  .map { bottom: 20px; }
+
+  /* Gallery Item Heights */
+  .gallery-item img {
+    height: 200px;
+  }
+
+  /* Contact Section Padding & Layout */
+  .contact-info-card, .contact-form-card {
+    padding: 25px 20px;
+  }
+
+  .contact-grid {
+    gap: 25px;
+  }
+
+  /* Toast positioning for small screens */
+  .toast-container {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .toast {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+/* Very Small Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 8px 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .transport-grid, .product-grid, .services-grid, .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-question {
+    padding: 16px 18px;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 18px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding-bottom: 16px;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
