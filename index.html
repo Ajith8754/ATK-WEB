@@ -8,7 +8,9 @@
 </head>
 <body>
   <header>
-    <div class="logo"> ATK Poultry & Farm</div>
+    <div class="logo">
+      <img src="assert/atk_logo_white.png" alt="ATK Poultry & Farm Logo" class="logo-img">
+    </div>
     <nav>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -16,8 +18,8 @@
         <li><a href="#products">Products</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
@@ -39,7 +41,7 @@
       living through sustainable poultry farming.
     </p>
     <div class="about-images">
-      <img src="https://images.unsplash.com/photo-1604061422933-c6c88e275ab7" alt="Farm" />
+      <img src="assert/as.jpg" alt="Farm" />
       <img src="assert/broiler chiken.jpg" alt="Chickens" />
     </div>
   </section>
@@ -223,45 +225,7 @@
     </div>
   </section>
 
-  <section id="reviews" class="reviews">
-    <h2>Customer Reviews</h2>
-    <p class="section-subtitle">What our happy customers say about ATK Poultry & Farm</p>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="rating">⭐⭐⭐⭐⭐</div>
-        <p class="feedback">"The quality of the country chicken and fresh eggs is top-notch. I regularly purchase in wholesale for my restaurant, and the delivery is always on time!"</p>
-        <div class="customer-info">
-          <div class="avatar">K</div>
-          <div>
-            <h4>Karthikeyan R.</h4>
-            <span>Salem, TN (Restaurant Owner)</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="rating">⭐⭐⭐⭐⭐</div>
-        <p class="feedback">"Healthy day-old chicks and excellent consultation. Mr. Thangarasu guided me personally on building my small poultry setup. Highly recommended!"</p>
-        <div class="customer-info">
-          <div class="avatar">M</div>
-          <div>
-            <h4>Muthu Kumar</h4>
-            <span>Dharmapuri, TN (Farmer)</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="rating">⭐⭐⭐⭐⭐</div>
-        <p class="feedback">"Clean packaging and prompt home delivery. The broiler chicken meat is very tender and fresh. Excellent service in Erode."</p>
-        <div class="customer-info">
-          <div class="avatar">P</div>
-          <div>
-            <h4>Priya Dharshini</h4>
-            <span>Erode, TN (Retail Customer)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Reviews Section moved to bottom -->
 
   <!-- ❓ FAQ SECTION -->
   <section id="faq" class="faq-section">
@@ -359,6 +323,54 @@
   </div>
 </section>
 
+  <!-- 💬 REVIEWS SECTION -->
+  <section id="reviews" class="reviews">
+    <h2>Customer Reviews</h2>
+    <p class="section-subtitle">What our happy customers say about ATK Poultry & Farm</p>
+    <div class="reviews-actions">
+      <button id="openReviewModalBtn" class="write-review-btn">✍ Write a Review</button>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid">
+      <div class="review-card">
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="feedback">"The quality of the country chicken and fresh eggs is top-notch. I regularly purchase in wholesale for my restaurant, and the delivery is always on time!"</p>
+        <div class="customer-info">
+          <div class="avatar">K</div>
+          <div>
+            <h4>Karthikeyan R.</h4>
+            <span>Salem, TN (Restaurant Owner)</span>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="feedback">"Healthy day-old chicks and excellent consultation. Mr. Thangarasu guided me personally on building my small poultry setup. Highly recommended!"</p>
+        <div class="customer-info">
+          <div class="avatar">M</div>
+          <div>
+            <h4>Muthu Kumar</h4>
+            <span>Dharmapuri, TN (Farmer)</span>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="feedback">"Clean packaging and prompt home delivery. The broiler chicken meat is very tender and fresh. Excellent service in Erode."</p>
+        <div class="customer-info">
+          <div class="avatar">P</div>
+          <div>
+            <h4>Priya Dharshini</h4>
+            <span>Erode, TN (Retail Customer)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="reviews-more-container" id="reviewsMoreContainer" style="display: none;">
+      <button id="toggleReviewsBtn" class="more-reviews-btn">Show More Reviews</button>
+    </div>
+  </section>
+
   <!-- 📞 CONTACT SECTION -->
   <section id="contact" class="contact-section">
     <h2>Contact Us</h2>
@@ -428,6 +440,8 @@
           Chat on WhatsApp
         </a>
 
+
+
         <!-- Embedded Google Map -->
         <div class="map-container">
           <iframe 
@@ -479,6 +493,30 @@
               <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
           </button>
+
+          <!-- 🌐 CONTACT FORM SOCIAL MEDIA LINKS -->
+          <div class="contact-form-social">
+            <span>Connect with Us:</span>
+            <div class="social-icon-row">
+              <a href="https://facebook.com/yourpage" target="_blank" class="form-social-icon fb" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                </svg>
+              </a>
+              <a href="https://instagram.com/yourpage" target="_blank" class="form-social-icon ig" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="https://wa.me/919715021735" target="_blank" class="form-social-icon wa" aria-label="WhatsApp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 2c-5.506 0-9.988 4.47-9.992 9.972-.001 1.764.462 3.486 1.344 5.011l-1.428 5.215 5.337-1.399c1.474.802 3.13 1.225 4.819 1.226h.004c5.503 0 9.985-4.47 9.99-9.972.002-2.666-1.036-5.174-2.923-7.063C17.296 3.003 14.7 2 12.031 2zm6.91 14.1c-.3.842-1.745 1.584-2.426 1.688-.68.104-1.503.189-4.834-1.189-3.238-1.343-5.267-4.63-5.429-4.846-.16-.216-1.287-1.701-1.287-3.245 0-1.545.811-2.302 1.096-2.603.284-.3.626-.379.835-.379.208 0 .416.002.597.01.188.008.437-.072.685.52.253.606.862 2.1.938 2.252.076.152.126.33.025.53-.1.2-.152.33-.3.5l-.452.52c-.15.176-.308.368-.13.673.18.304.795 1.31 1.7 2.115.908.804 1.674 1.05 1.977 1.176.304.126.48.104.658-.104.18-.208.777-.905.986-1.213.208-.309.417-.258.7-.152.284.105 1.8.85 2.11 1.004.31.155.518.232.593.363.076.13.076.757-.225 1.6z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -488,25 +526,7 @@
   <div id="toastContainer" class="toast-container"></div>
 
 
- <!-- Floating Social Buttons -->
-<a href="https://facebook.com/yourpage" target="_blank" class="float-btn fb">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
-</a>
-
-<a href="https://instagram.com/yourpage" target="_blank" class="float-btn ig">
-  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-</a>
-
-<a href="https://wa.me/918754366470" target="_blank" class="float-whatsapp">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-</a>
-
-<!-- Floating Map Location Button -->
-<a href="https://www.google.com/maps/place/ATK+poultry/@12.1053447,77.9638808,17.75z/data=!4m6!3m5!1s0x3bac1fdba44a8db9:0x4968cd37012f660c!8m2!3d12.1060327!4d77.9635136!16s%2Fg%2F11q3w6chp3?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" 
-   target="_blank" 
-   class="float-btn map">
-  <img src="https://cdn-icons-png.flaticon.com/512/727/727606.png" alt="Map">
-</a>
+  <!-- Floating Social Buttons removed -->
 
 
 
@@ -517,6 +537,43 @@
   <footer>
     <p>© 2025 ATK Poultry and Farm. All rights reserved.</p>
   </footer>
+
+  <!-- ✍ WRITE A REVIEW MODAL -->
+  <div id="reviewModal" class="review-modal-overlay">
+    <div class="review-modal-content">
+      <span class="close-modal-btn" id="closeReviewModalBtn">&times;</span>
+      <h3>Write a Customer Review</h3>
+      <form id="reviewForm" class="review-modal-form">
+        <div class="form-group">
+          <label for="reviewName">Your Name *</label>
+          <input type="text" id="reviewName" required placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="reviewLocation">Location & Role *</label>
+          <input type="text" id="reviewLocation" required placeholder="e.g. Salem, TN (Farmer)">
+        </div>
+        <div class="form-group">
+          <label>Rating *</label>
+          <div class="star-rating-select" id="starRatingSelect">
+            <span class="modal-star" data-rating="1">&#9733;</span>
+            <span class="modal-star" data-rating="2">&#9733;</span>
+            <span class="modal-star" data-rating="3">&#9733;</span>
+            <span class="modal-star" data-rating="4">&#9733;</span>
+            <span class="modal-star" data-rating="5">&#9733;</span>
+          </div>
+          <input type="hidden" id="reviewRatingInput" value="5" required>
+        </div>
+        <div class="form-group">
+          <label for="reviewFeedback">Your Review *</label>
+          <textarea id="reviewFeedback" rows="4" required placeholder="Tell us about your experience..."></textarea>
+        </div>
+        <div class="review-modal-actions">
+          <button type="submit" class="submit-review-btn">Submit Review</button>
+          <button type="button" class="cancel-review-btn" id="cancelReviewBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

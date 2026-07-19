@@ -177,5 +177,251 @@ function showToast(title, text, type) {
   }, 4500);
 }
 
+// ==========================================================================
+// Write a Review Modal Toggle, Star Selection, and LocalStorage Reviews Persistence
+// ==========================================================================
+const openReviewModalBtn = document.getElementById('openReviewModalBtn');
+const reviewModal = document.getElementById('reviewModal');
+const closeReviewModalBtn = document.getElementById('closeReviewModalBtn');
+const cancelReviewBtn = document.getElementById('cancelReviewBtn');
+const reviewForm = document.getElementById('reviewForm');
+const reviewsGrid = document.getElementById('reviewsGrid');
+const starRatingSelect = document.getElementById('starRatingSelect');
+const reviewRatingInput = document.getElementById('reviewRatingInput');
+const toggleReviewsBtn = document.getElementById('toggleReviewsBtn');
+const reviewsMoreContainer = document.getElementById('reviewsMoreContainer');
+
+// Initialize reviews list from local storage or empty array
+let customReviews = JSON.parse(localStorage.getItem('atk_farm_reviews') || '[]');
+
+// Static default reviews
+const defaultReviews = [
+  {
+    name: "Karthikeyan R.",
+    location: "Salem, TN (Restaurant Owner)",
+    rating: 5,
+    feedback: "The quality of the country chicken and fresh eggs is top-notch. I regularly purchase in wholesale for my restaurant, and the delivery is always on time!"
+  },
+  {
+    name: "Muthu Kumar",
+    location: "Dharmapuri, TN (Farmer)",
+    rating: 5,
+    feedback: "Healthy day-old chicks and excellent consultation. Mr. Thangarasu guided me personally on building my small poultry setup. Highly recommended!"
+  },
+  {
+    name: "Priya Dharshini",
+    location: "Erode, TN (Retail Customer)",
+    rating: 5,
+    feedback: "Clean packaging and prompt home delivery. The broiler chicken meat is very tender and fresh. Excellent service in Erode."
+  }
+];
+
+// Initialize on page load
+initReviews();
+
+function initReviews() {
+  renderAllReviews();
+
+  // Setup toggle button event listener
+  if (toggleReviewsBtn) {
+    toggleReviewsBtn.addEventListener('click', () => {
+      if (!reviewsGrid) return;
+      
+      const isExpanded = reviewsGrid.classList.toggle('expanded');
+      if (isExpanded) {
+        toggleReviewsBtn.textContent = 'Show Less Reviews';
+      } else {
+        toggleReviewsBtn.textContent = 'Show More Reviews';
+        // Scroll back to the reviews section when collapsing
+        const reviewsSection = document.getElementById('reviews');
+        if (reviewsSection) {
+          reviewsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
+}
+
+// Render all reviews (custom + defaults) dynamically
+function renderAllReviews() {
+  if (!reviewsGrid) return;
+
+  const allReviews = [...customReviews, ...defaultReviews];
+  reviewsGrid.innerHTML = '';
+
+  allReviews.forEach((review, index) => {
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    
+    // Hide reviews after the first 3
+    if (index >= 3) {
+      card.classList.add('hidden-review');
+    }
+
+    let stars = '';
+    for (let i = 0; i < 5; i++) {
+      if (i < review.rating) {
+        stars += '⭐';
+      }
+    }
+
+    const firstLetter = review.name ? review.name.charAt(0).toUpperCase() : 'C';
+
+    card.innerHTML = `
+      <div class="rating">${stars}</div>
+      <p class="feedback">"${review.feedback}"</p>
+      <div class="customer-info">
+        <div class="avatar">${firstLetter}</div>
+        <div>
+          <h4>${review.name}</h4>
+          <span>${review.location}</span>
+        </div>
+      </div>
+    `;
+    reviewsGrid.appendChild(card);
+  });
+
+  // Display "Show More" container if total reviews > 3
+  if (reviewsMoreContainer) {
+    if (allReviews.length > 3) {
+      reviewsMoreContainer.style.display = 'block';
+    } else {
+      reviewsMoreContainer.style.display = 'none';
+    }
+  }
+}
+
+if (openReviewModalBtn && reviewModal) {
+  // Open modal
+  openReviewModalBtn.addEventListener('click', () => {
+    reviewModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    resetReviewForm();
+  });
+
+  // Close modal functions
+  const closeModal = () => {
+    reviewModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+  };
+
+  if (closeReviewModalBtn) closeReviewModalBtn.addEventListener('click', closeModal);
+  if (cancelReviewBtn) cancelReviewBtn.addEventListener('click', closeModal);
+
+  // Close when clicking outside content
+  reviewModal.addEventListener('click', (e) => {
+    if (e.target === reviewModal) {
+      closeModal();
+    }
+  });
+
+  // Star Rating Interaction
+  if (starRatingSelect) {
+    const stars = starRatingSelect.querySelectorAll('.modal-star');
+    
+    // Set initial active state (5 stars by default)
+    updateStars(5);
+
+    stars.forEach(star => {
+      // Click event
+      star.addEventListener('click', () => {
+        const rating = parseInt(star.getAttribute('data-rating'));
+        reviewRatingInput.value = rating;
+        updateStars(rating);
+      });
+
+      // Mouse enter (hover preview)
+      star.addEventListener('mouseenter', () => {
+        const rating = parseInt(star.getAttribute('data-rating'));
+        highlightStarsOnHover(rating);
+      });
+    });
+
+    // Mouse leave (clear hover preview)
+    starRatingSelect.addEventListener('mouseleave', () => {
+      stars.forEach(s => s.classList.remove('hovered'));
+    });
+
+    function updateStars(rating) {
+      stars.forEach(s => {
+        const val = parseInt(s.getAttribute('data-rating'));
+        if (val <= rating) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+    }
+
+    function highlightStarsOnHover(rating) {
+      stars.forEach(s => {
+        const val = parseInt(s.getAttribute('data-rating'));
+        if (val <= rating) {
+          s.classList.add('hovered');
+        } else {
+          s.classList.remove('hovered');
+        }
+      });
+    }
+  }
+
+  // Reset review form to default
+  function resetReviewForm() {
+    if (reviewForm) reviewForm.reset();
+    reviewRatingInput.value = '5';
+    if (starRatingSelect) {
+      const stars = starRatingSelect.querySelectorAll('.modal-star');
+      stars.forEach(s => {
+        s.classList.add('active');
+        s.classList.remove('hovered');
+      });
+    }
+  }
+
+  // Handle Review Form Submission
+  if (reviewForm) {
+    reviewForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('reviewName').value.trim();
+      const location = document.getElementById('reviewLocation').value.trim();
+      const ratingVal = parseInt(reviewRatingInput.value);
+      const feedback = document.getElementById('reviewFeedback').value.trim();
+
+      if (!name || !location || !feedback) {
+        showToast('Error', 'Please fill in all fields.', 'error');
+        return;
+      }
+
+      // Add to custom reviews list
+      const newReview = {
+        name: name,
+        location: location,
+        rating: ratingVal,
+        feedback: feedback
+      };
+
+      customReviews.unshift(newReview); // Put at the beginning
+      localStorage.setItem('atk_farm_reviews', JSON.stringify(customReviews));
+
+      // Re-render all reviews
+      renderAllReviews();
+
+      // Expand the grid if it was collapsed to show the new review immediately
+      if (reviewsGrid && !reviewsGrid.classList.contains('expanded')) {
+        reviewsGrid.classList.add('expanded');
+        if (toggleReviewsBtn) toggleReviewsBtn.textContent = 'Show Less Reviews';
+      }
+
+      // Close modal
+      closeModal();
+
+      // Show Success Toast
+      showToast('Thank you!', `Hi ${name}, your review has been successfully posted.`, 'success');
+    });
+  }
+}
+
+
 
 

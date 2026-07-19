@@ -24,8 +24,19 @@ header {
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.logo-img:hover {
+  transform: scale(1.06);
 }
 
 .nav-links {
@@ -1015,6 +1026,75 @@ footer {
   transform: translateY(0);
 }
 
+/* Contact Form Social Media Buttons Styles */
+.contact-form-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #cbd5e1;
+}
+
+.contact-form-social span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.social-icon-row {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.form-social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.form-social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.form-social-icon:hover {
+  transform: translateY(-3px) scale(1.08);
+}
+
+.form-social-icon.fb {
+  background-color: #1877f2;
+}
+
+.form-social-icon.fb:hover {
+  box-shadow: 0 6px 15px rgba(24, 119, 242, 0.35);
+}
+
+.form-social-icon.ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.form-social-icon.ig:hover {
+  box-shadow: 0 6px 15px rgba(220, 39, 67, 0.35);
+}
+
+.form-social-icon.wa {
+  background-color: #25d366;
+}
+
+.form-social-icon.wa:hover {
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
+}
+
 /* ==========================================================================
    Toast Notification System
    ========================================================================== */
@@ -1076,6 +1156,304 @@ footer {
   margin: 0;
   font-size: 0.85rem;
   color: #666;
+}
+
+/* ==========================================================================
+   Reviews Actions & Write Review Button Styles
+   ========================================================================== */
+.reviews-actions {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.write-review-btn {
+  background-color: #00796b;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 121, 107, 0.2);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.write-review-btn:hover {
+  background-color: #004d40;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 121, 107, 0.35);
+}
+
+.write-review-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Social Media Links Under Contact Info Styles
+   ========================================================================== */
+.contact-social {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 2px solid #e8f5e9;
+}
+
+.contact-social h4 {
+  color: #00796b;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.social-links-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-link-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.social-link-item svg {
+  flex-shrink: 0;
+}
+
+.social-link-item.fb {
+  background-color: #1877f2;
+}
+
+.social-link-item.fb:hover {
+  background-color: #0d62d1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(24, 119, 242, 0.3);
+}
+
+.social-link-item.ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-link-item.ig:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 39, 67, 0.3);
+}
+
+.social-link-item.wa {
+  background-color: #25d366;
+}
+
+.social-link-item.wa:hover {
+  background-color: #1ebea5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* ==========================================================================
+   Review Cards Expansion and Show More Styles
+   ========================================================================== */
+.review-card.hidden-review {
+  display: none !important;
+}
+
+.reviews-grid.expanded .review-card.hidden-review {
+  display: flex !important;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reviews-more-container {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.more-reviews-btn {
+  background-color: transparent;
+  color: #00796b;
+  border: 2px solid #00796b;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.more-reviews-btn:hover {
+  background-color: #00796b;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 121, 107, 0.15);
+}
+
+.more-reviews-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Write a Review Modal Dialog Styles
+   ========================================================================== */
+.review-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.review-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.review-modal-content {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: translateY(-30px);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.review-modal-overlay.active .review-modal-content {
+  transform: translateY(0);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.close-modal-btn:hover {
+  color: #111;
+}
+
+.review-modal-content h3 {
+  color: #00796b;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  border-bottom: 2px solid #e8f5e9;
+  padding-bottom: 10px;
+}
+
+.review-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Star Rating Input styling */
+.star-rating-select {
+  display: flex;
+  gap: 6px;
+  font-size: 2rem;
+}
+
+.modal-star {
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.modal-star:hover {
+  transform: scale(1.15);
+}
+
+.modal-star.active, .modal-star.hovered {
+  color: #ffc107;
+}
+
+.review-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.submit-review-btn {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1.2;
+  box-shadow: 0 4px 10px rgba(0, 121, 107, 0.2);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.submit-review-btn:hover {
+  background-color: #004d40;
+  box-shadow: 0 6px 15px rgba(0, 121, 107, 0.3);
+}
+
+.cancel-review-btn {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 0.8;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cancel-review-btn:hover {
+  background-color: #e2e8f0;
 }
 
 /* ==========================================================================
